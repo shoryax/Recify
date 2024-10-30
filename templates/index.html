@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Search</title>
+    <link rel="stylesheet" href="static/css1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Recify</h1>
+
+    <form action="{{ url_for('search') }}" method="post">
+        <label for="search">Search for a song:</label>
+        <input type="text" id="search" name="search" placeholder="">
+
+        <label for="category">Select Genre:</label>
+        <select id="category" name="category">
+            <option disabled selected value="">Genre</option>
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+            <option value="jazz">Jazz</option>
+            <option value="hip hop">Hip Hop</option>
+            <option value="classical">Classical</option>
+            <!-- Add more categories as needed -->
+        </select>
+
+        <label for="language">Select Language:</label>
+        <select id="language" name="language">
+            <option disabled selected value="">Language</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Chinese">Chinese</option>
+            <!-- Add more languages as needed -->
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>
